@@ -21,8 +21,8 @@
 		F2679AF0182E17CF00B3D1A6 /* TextViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679AEF182E17CF00B3D1A6 /* TextViewDemoTests.m */; };
 		F2679AFB182E182F00B3D1A6 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679AFA182E182F00B3D1A6 /* DemoViewController.m */; };
 		F2679AFC182E182F00B3D1A6 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679AFA182E182F00B3D1A6 /* DemoViewController.m */; };
-		F2679AFF182E2FEC00B3D1A6 /* DDHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679AFE182E2FEC00B3D1A6 /* DDHTextView.m */; };
-		F2679B00182E2FEC00B3D1A6 /* DDHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679AFE182E2FEC00B3D1A6 /* DDHTextView.m */; };
+		F2679B04182E952000B3D1A6 /* DDHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679B03182E952000B3D1A6 /* DDHTextView.m */; };
+		F2679B05182E952000B3D1A6 /* DDHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2679B03182E952000B3D1A6 /* DDHTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,8 @@
 		F2679AEF182E17CF00B3D1A6 /* TextViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewDemoTests.m; sourceTree = "<group>"; };
 		F2679AF9182E182F00B3D1A6 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ViewController/DemoViewController.h; sourceTree = "<group>"; };
 		F2679AFA182E182F00B3D1A6 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ViewController/DemoViewController.m; sourceTree = "<group>"; };
-		F2679AFD182E2FEC00B3D1A6 /* DDHTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHTextView.h; path = DDHTextView/DDHTextView.h; sourceTree = "<group>"; };
-		F2679AFE182E2FEC00B3D1A6 /* DDHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHTextView.m; path = DDHTextView/DDHTextView.m; sourceTree = "<group>"; };
+		F2679B02182E952000B3D1A6 /* DDHTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTextView.h; sourceTree = "<group>"; };
+		F2679B03182E952000B3D1A6 /* DDHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +119,7 @@
 				F2679ADA182E17CF00B3D1A6 /* DDHAppDelegate.m */,
 				F2679AF9182E182F00B3D1A6 /* DemoViewController.h */,
 				F2679AFA182E182F00B3D1A6 /* DemoViewController.m */,
-				F2679AFD182E2FEC00B3D1A6 /* DDHTextView.h */,
-				F2679AFE182E2FEC00B3D1A6 /* DDHTextView.m */,
+				F2679B01182E952000B3D1A6 /* DDHTextView */,
 				F2679ADC182E17CF00B3D1A6 /* Images.xcassets */,
 				F2679AD1182E17CF00B3D1A6 /* Supporting Files */,
 			);
@@ -155,6 +154,15 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		F2679B01182E952000B3D1A6 /* DDHTextView */ = {
+			isa = PBXGroup;
+			children = (
+				F2679B02182E952000B3D1A6 /* DDHTextView.h */,
+				F2679B03182E952000B3D1A6 /* DDHTextView.m */,
+			);
+			path = DDHTextView;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -252,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2679AFF182E2FEC00B3D1A6 /* DDHTextView.m in Sources */,
+				F2679B04182E952000B3D1A6 /* DDHTextView.m in Sources */,
 				F2679AFB182E182F00B3D1A6 /* DemoViewController.m in Sources */,
 				F2679AD7182E17CF00B3D1A6 /* main.m in Sources */,
 				F2679ADB182E17CF00B3D1A6 /* DDHAppDelegate.m in Sources */,
@@ -264,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2679AF0182E17CF00B3D1A6 /* TextViewDemoTests.m in Sources */,
-				F2679B00182E2FEC00B3D1A6 /* DDHTextView.m in Sources */,
+				F2679B05182E952000B3D1A6 /* DDHTextView.m in Sources */,
 				F2679AFC182E182F00B3D1A6 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
