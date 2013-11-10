@@ -5,6 +5,11 @@ A UITextView subclass which let's you move the cursor with a pan gesture. When t
 (this is when the keyboard is up) you can more the cursor by panning left and right in the text view.
 If you pan with two fingers you can select text.
 
+Screenshot
+----------
+
+![](https://raw.github.com/dasdom/DDHTextView/master/screenshot.png)
+
 How to use it
 -------------
 
