@@ -23,6 +23,8 @@
 
 #import "DDHTextView.h"
 
+#define kCursorVelocity 1.0f/8.0f
+
 @interface DDHTextView ()
 @property (nonatomic, assign) NSRange startRange;
 @end
@@ -51,7 +53,7 @@
         self.startRange = self.selectedRange;
     }
     
-    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)([sender translationInView:self].x/8.0f), 0);
+    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)([sender translationInView:self].x*kCursorVelocity), 0);
     NSRange selectedRange = {cursorLocation, 0};
     self.selectedRange = selectedRange;
 }
@@ -63,7 +65,7 @@
         self.startRange = self.selectedRange;
     }
     
-    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)([sender translationInView:self].x/8.0f), 0);
+    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)([sender translationInView:self].x*kCursorVelocity), 0);
     NSRange selectedRange;
     if (cursorLocation > self.startRange.location)
     {
