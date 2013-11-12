@@ -26,6 +26,8 @@
 #define kCursorVelocity 1.0f/8.0f
 
 @interface DDHTextView ()
+@property (nonatomic, strong) UIPanGestureRecognizer *singleFingerPanRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *doubleFingerPanRecognizer;
 @property (nonatomic, assign) NSRange startRange;
 @end
 
@@ -35,15 +37,21 @@
 {
     self = [super init];
     if (self) {
-        UIPanGestureRecognizer *singleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singleFingerPanHappend:)];
-        singleFingerPanRecognizer.maximumNumberOfTouches = 1;
-        [self addGestureRecognizer:singleFingerPanRecognizer];
+        _singleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singleFingerPanHappend:)];
+        _singleFingerPanRecognizer.maximumNumberOfTouches = 1;
+        [self addGestureRecognizer:_singleFingerPanRecognizer];
         
-        UIPanGestureRecognizer *doubleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doubleFingerPanHappend:)];
-        doubleFingerPanRecognizer.minimumNumberOfTouches = 2;
-        [self addGestureRecognizer:doubleFingerPanRecognizer];
+        _doubleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doubleFingerPanHappend:)];
+        _doubleFingerPanRecognizer.minimumNumberOfTouches = 2;
+        [self addGestureRecognizer:_doubleFingerPanRecognizer];
     }
     return self;
+}
+
+- (void)requireGestureRecognizerToFail:(UIGestureRecognizer*)gestureRecognizer
+{
+    [self.singleFingerPanRecognizer requireGestureRecognizerToFail:gestureRecognizer];
+    [self.doubleFingerPanRecognizer requireGestureRecognizerToFail:gestureRecognizer];
 }
 
 - (void)singleFingerPanHappend:(UIPanGestureRecognizer*)sender

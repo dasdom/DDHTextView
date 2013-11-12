@@ -25,4 +25,6 @@
 
 @interface DDHTextView : UITextView
 
+- (void)requireGestureRecognizerToFail:(UIGestureRecognizer*)gestureRecognizer;
+
 @end
