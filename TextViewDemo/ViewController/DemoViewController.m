@@ -39,7 +39,7 @@
     DDHTextView *textView = [[DDHTextView alloc] init];
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     textView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
-    textView.text = @"This gray area is a textview. Tap it with your finger to enter edit mode. In edit mode you can pan right and left with your finger to move the cursor.\nPan with two fingers to select text.";
+    textView.text = @"This gray area is a textview. Tap it with your finger to enter edit mode. In edit mode you can pan right and left with two fingers to move the cursor.\nPan with three fingers to select text.";
     [contentView addSubview:textView];
     
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(textView);
