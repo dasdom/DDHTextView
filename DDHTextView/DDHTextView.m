@@ -29,7 +29,6 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *singleFingerPanRecognizer;
 @property (nonatomic, strong) UIPanGestureRecognizer *doubleFingerPanRecognizer;
 @property (nonatomic, assign) NSRange startRange;
-@property (nonatomic, assign) CGPoint currentContentOffset;
 @end
 
 @implementation DDHTextView
@@ -61,27 +60,12 @@
     if (sender.state == UIGestureRecognizerStateBegan)
     {
         self.startRange = self.selectedRange;
-//        self.currentContentOffset = self.contentOffset;
     }
     
     CGPoint translation = [sender translationInView:self];
     CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)(translation.x*kCursorVelocity), 0);
     NSRange selectedRange = {cursorLocation, 0};
     self.selectedRange = selectedRange;
-    
-//    self.contentOffset = CGPointMake(self.currentContentOffset.x, self.currentContentOffset.y-translation.y);
-//
-//    if (sender.state == UIGestureRecognizerStateEnded)
-//    {
-//        if (self.contentOffset.y < 0)
-//        {
-//            [self setContentOffset:CGPointMake(self.contentOffset.x, 0) animated:YES];
-//        }
-//        else if (self.contentOffset.y > self.contentSize.height - self.frame.size.height)
-//        {
-//            [self setContentOffset:CGPointMake(self.contentOffset.x, self.contentSize.height - self.frame.size.height) animated:YES];
-//        }
-//    }
 }
 
 - (void)doubleFingerPanHappend:(UIPanGestureRecognizer*)sender
