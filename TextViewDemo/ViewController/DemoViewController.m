@@ -25,7 +25,7 @@
 #import "DDHTextView.h"
 
 @interface DemoViewController ()
-
+@property (nonatomic, strong) DDHTextView *textView;
 @end
 
 @implementation DemoViewController
@@ -36,24 +36,22 @@
     
     UIView *contentView = [[UIView alloc] initWithFrame:frame];
     
-    DDHTextView *textView = [[DDHTextView alloc] init];
-    textView.translatesAutoresizingMaskIntoConstraints = NO;
-    textView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
-    textView.text = @"This gray area is a textview. Tap it with your finger to enter edit mode. In edit mode you can pan right and left with two fingers to move the cursor.\nPan with three fingers to select text.";
-    [contentView addSubview:textView];
+    _textView = [[DDHTextView alloc] init];
+    _textView.translatesAutoresizingMaskIntoConstraints = NO;
+    _textView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
+    _textView.text = @"This gray area is a textview. Pan left and right on the area above the keyboard to move the cursor.\nPan on that area with two fingers to select text.\nDouble tap at the left (right) edge to move the cursor to the beginning (end).";
+    [contentView addSubview:_textView];
     
-    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(textView);
-    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[textView]|" options:0 metrics:nil views:viewsDictionary]];
-    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-40-[textView(200)]" options:0 metrics:nil views:viewsDictionary]];
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_textView);
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[_textView]|" options:0 metrics:nil views:viewsDictionary]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-40-[_textView(100)]" options:0 metrics:nil views:viewsDictionary]];
 
  
     self.view = contentView;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+- (void)viewDidAppear:(BOOL)animated {
+    [_textView becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
