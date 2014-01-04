@@ -78,7 +78,7 @@ CGFloat const DDHCursorVelocity = 1.0f/8.0f;
     }
     
     CGPoint translation = [sender translationInView:self];
-    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)(translation.x*DDHCursorVelocity), 0);
+    CGFloat cursorLocation = MAX(_startRange.location+(NSInteger)(translation.x*DDHCursorVelocity), 0);
     NSRange selectedRange = {cursorLocation, 0};
     self.selectedRange = selectedRange;
 }
@@ -88,12 +88,12 @@ CGFloat const DDHCursorVelocity = 1.0f/8.0f;
         self.startRange = self.selectedRange;
     }
     
-    CGFloat cursorLocation = MAX(self.startRange.location+(NSInteger)([sender translationInView:self].x*DDHCursorVelocity), 0);
+    CGFloat cursorLocation = MAX(_startRange.location+(NSInteger)([sender translationInView:self].x*DDHCursorVelocity), 0);
     NSRange selectedRange;
     if (cursorLocation > self.startRange.location) {
-        selectedRange = NSMakeRange(self.startRange.location, fabsf(self.startRange.location-cursorLocation));
+        selectedRange = NSMakeRange(_startRange.location, fabsf(_startRange.location-cursorLocation));
     } else {
-        selectedRange = NSMakeRange(cursorLocation, fabsf(self.startRange.location-cursorLocation));
+        selectedRange = NSMakeRange(cursorLocation, fabsf(_startRange.location-cursorLocation));
     }
     self.selectedRange = selectedRange;
 }
