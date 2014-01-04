@@ -37,24 +37,34 @@ CGFloat const DDHCursorVelocity = 1.0f/8.0f;
 - (id)init {
     self = [super init];
     if (self) {
-        UIView *inputAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen] applicationFrame].size.width, 40.0f)];
-        inputAccessoryView.backgroundColor = [UIColor colorWithWhite:0.90f alpha:1.0f];
-        
-        self.inputAccessoryView = inputAccessoryView;
-        
-        _singleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singleFingerPanHappend:)];
-        _singleFingerPanRecognizer.maximumNumberOfTouches = 1;
-        [inputAccessoryView addGestureRecognizer:_singleFingerPanRecognizer];
-        
-        _doubleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doubleFingerPanHappend:)];
-        _doubleFingerPanRecognizer.minimumNumberOfTouches = 2;
-        [inputAccessoryView addGestureRecognizer:_doubleFingerPanRecognizer];
-        
-        _doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapHappend:)];
-        _doubleTapRecognizer.numberOfTapsRequired = 2;
-        [inputAccessoryView addGestureRecognizer:_doubleTapRecognizer];
+        [self setUpInputAccessoryView];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self setUpInputAccessoryView];
+}
+
+- (void)setUpInputAccessoryView {
+    UIView *inputAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen] applicationFrame].size.width, 40.0f)];
+    inputAccessoryView.backgroundColor = [UIColor colorWithWhite:0.90f alpha:1.0f];
+    
+    self.inputAccessoryView = inputAccessoryView;
+    
+    _singleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singleFingerPanHappend:)];
+    _singleFingerPanRecognizer.maximumNumberOfTouches = 1;
+    [inputAccessoryView addGestureRecognizer:_singleFingerPanRecognizer];
+    
+    _doubleFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doubleFingerPanHappend:)];
+    _doubleFingerPanRecognizer.minimumNumberOfTouches = 2;
+    [inputAccessoryView addGestureRecognizer:_doubleFingerPanRecognizer];
+    
+    _doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapHappend:)];
+    _doubleTapRecognizer.numberOfTapsRequired = 2;
+    [inputAccessoryView addGestureRecognizer:_doubleTapRecognizer];
 }
 
 - (void)requireGestureRecognizerToFail:(UIGestureRecognizer*)gestureRecognizer {
