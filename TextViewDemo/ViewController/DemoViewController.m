@@ -37,7 +37,6 @@
     UIView *contentView = [[UIView alloc] initWithFrame:frame];
     
     _textView = [[DDHTextView alloc] init];
-    _textView.inputAccessoryViewBackgroundColor = [UIColor redColor];
     _textView.translatesAutoresizingMaskIntoConstraints = NO;
     _textView.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
     _textView.text = @"This gray area is a textview. Pan left and right on the area above the keyboard to move the cursor.\nPan on that area with two fingers to select text.\nDouble tap at the left (right) edge to move the cursor to the beginning (end).";
