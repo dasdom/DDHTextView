@@ -9,6 +9,8 @@ Screenshot
 
 ![](https://raw.github.com/dasdom/DDHTextView/master/screenshot.png)
 
+![](https://raw.githubusercontent.com/dasdom/DDHTextView/master/panDemo.gif)
+
 How to use it
 -------------
 
