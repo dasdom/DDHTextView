@@ -38,7 +38,6 @@ CGFloat const DDHCursorDefaultVelocity = 1.0f/8.0f;
     self = [super init];
     if (self) {
         [self setUpInputAccessoryView];
-        self.cursorVelocity = DDHCursorDefaultVelocity;
     }
     return self;
 }
@@ -53,6 +52,8 @@ CGFloat const DDHCursorDefaultVelocity = 1.0f/8.0f;
  *  Create and setup the input accessory view.
  */
 - (void)setUpInputAccessoryView {
+    self.cursorVelocity = DDHCursorDefaultVelocity;
+    
     UIView *inputAccessoryView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen] applicationFrame].size.width, 40.0f)];
         view.backgroundColor = [UIColor colorWithWhite:0.90f alpha:1.0f];
