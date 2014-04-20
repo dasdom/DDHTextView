@@ -1,7 +1,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2013 Dominik Hauser
+//  Copyright (c) 2013-2014 Dominik Hauser
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -25,6 +25,23 @@
 
 @interface DDHTextView : UITextView
 
+/**
+ *  Background color for the inputAccessoryView.
+ */
+@property (nonatomic, strong) UIColor *inputAccessoryViewBackgroundColor;
+
+/**
+ *  The velocity with which the cursor should move. Default is 1.0/8.0.
+ */
+@property (nonatomic, assign) CGFloat cursorVelocity;
+
+
+/**
+ *  This method lets add a geture recognizer which must fail before the
+ *  pan of the finger(s) is recognized.
+ *
+ *  @param gestureRecognizer the gesture recognizer which has to fail
+ */
 - (void)requireGestureRecognizerToFail:(UIGestureRecognizer*)gestureRecognizer;
 
 @end
