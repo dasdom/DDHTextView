@@ -24,3 +24,5 @@ License
 -------
 
 MIT license
+
+[![endorse](https://api.coderwall.com/dasdom/endorsecount.png)](https://coderwall.com/dasdom)
